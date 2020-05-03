@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   // selector: '[app-servers]'
   // selecting by class works, id does not
   selector: 'app-servers',
+  
   templateUrl: './servers.component.html',
   // template: ``, components have to have either templateUrl or template
   // use back-tics ` ` to do multi-line HTML
+  
   styleUrls: ['./servers.component.css'],
-  // alternative
+  // alternative:
   // styles: [
   //   `h3 { 
   //     color: dodgerBlue;
@@ -20,22 +22,24 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = true;
   serverCreationStatus = 'Server not created';
+  serverName = "Test Server";
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onCreateServer(serverName) {
+  onCreateServer() {
     this.serverCreationStatus = 'Server was created';
-    if (serverName) {
-      this.serverCreationStatus += ' with name ' + serverName;
+    if (this.serverName) {
+      this.serverCreationStatus += ' with name ' + this.serverName;
     }
   }
 
-  onUpdateServerName() {
-    this.onCreateServer('asd');
-  }
+  // onUpdateServerName(event: Event) {
+  //   console.log(event);
+  //   this.onCreateServer((<HTMLInputElement>event.target).value);
+  // }
 }
 
 
