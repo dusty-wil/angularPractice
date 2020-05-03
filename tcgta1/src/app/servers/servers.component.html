@@ -1,4 +1,9 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
+<input 
+        type="text"
+        class="form-control"
+        (input)="onUpdateServerName()"
+/>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer(null)">Add New Server</button>
 <!-- for property binding, must use a ts expression -->
 <app-server></app-server>
 <app-server></app-server>
