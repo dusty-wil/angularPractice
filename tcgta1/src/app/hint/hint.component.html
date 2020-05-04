@@ -1,0 +1,15 @@
+<p *ngIf="showHint">This is a hint</p>
+<button class="btn btn-primary" (click)="toggleHint($event)">{{ !showHint ? 'Show' : 'Hide' }} Hint</button>
+<ul *ngIf="hintRequests.length > 0">
+    <!-- <li
+        *ngFor="let hint of hintRequests"
+        [ngStyle]="{backgroundColor: hintRequests.indexOf(hint) >= 4 ? 'blue' : 'none'}"
+        [ngClass]="{extraHints: hintRequests.indexOf(hint) >= 4}"
+    >{{ hint }}</li>     -->
+
+    <li
+        *ngFor="let hint of hintRequests; let i = index"
+        [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'none'}"
+        [ngClass]="{extraHints: i >= 4}"
+    >{{ hint }}</li>
+</ul>
