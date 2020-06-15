@@ -10,14 +10,18 @@
         class="form-control"
         [(ngModel)]="serverName"
 />
-<p>{{ serverName }}</p>
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer(null)">Add New Server</button>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
 <!-- for property binding, must use a ts expression -->
-<app-server></app-server>
-<app-server></app-server>
-<p>{{ serverCreationStatus }}</p>
+<app-server *ngFor="let server of servers"></app-server>
+<p *ngIf="serverCreated; else noServer">Server was created with name: {{ serverName }}</p>
+<!-- local reference for ngIf statement -->
+<ng-template #noServer><p>No server created</p></ng-template>
 <div>
     <input
         type="text"
         class="form-control"
+        [(ngModel)]="userName"
+    />
+    <p>{{ userName }}</p>
+    <button class="btn btn-primary" [disabled]="!userName" (click)="userNameButtonClick($event)">Click dis</button>
 </div>
